@@ -1,7 +1,10 @@
-*.pyc
-__pycache__/
-instance/
-.env
-Pipfile.lock
-server/app.db
-server/migrations/
+```text
+   *.pyc
+   __pycache__/
+   instance/
+   .env
+   Pipfile.lock
+   server/app.db
+   server/migrations/
+   .venv/
+   venv/
