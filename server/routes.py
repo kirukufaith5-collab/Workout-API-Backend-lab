@@ -13,10 +13,7 @@ from schemas import (
 # Create a Blueprint for API routes
 api_bp = Blueprint('api', __name__)
 
-# ------------------------------------------------------------------------------
 # WORKOUT ROUTES
-# ------------------------------------------------------------------------------
-
 @api_bp.route('/workouts', methods=['GET'])
 def get_workouts():
     workouts = Workout.query.all()
@@ -60,10 +57,8 @@ def delete_workout(id):
     db.session.commit()
     return make_response(jsonify({'message': f'Workout {id} deleted successfully.'}), 200)
 
-# ------------------------------------------------------------------------------
-# EXERCISE ROUTES
-# ------------------------------------------------------------------------------
 
+# EXERCISE ROUTES
 @api_bp.route('/exercises', methods=['GET'])
 def get_exercises():
     exercises = Exercise.query.all()
@@ -107,10 +102,8 @@ def delete_exercise(id):
     db.session.commit()
     return make_response(jsonify({'message': f'Exercise {id} deleted successfully.'}), 200)
 
-# ------------------------------------------------------------------------------
-# JOIN TABLE ROUTE
-# ------------------------------------------------------------------------------
 
+# JOIN TABLE ROUTE
 @api_bp.route('/workouts/<int:workout_id>/exercises/<int:exercise_id>/workout_exercises', methods=['POST'])
 def add_exercise_to_workout(workout_id, exercise_id):
     workout = db.session.get(Workout, workout_id)
